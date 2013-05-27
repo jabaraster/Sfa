@@ -1,0 +1,11 @@
+*.class
+src/main/webapp/WEB-INF/classes/
+target/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+
+.DS_Store
