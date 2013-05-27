@@ -7,5 +7,5 @@ target/
 *.war
 *.ear
 
-
+# Other
 .DS_Store
