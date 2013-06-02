@@ -13,9 +13,11 @@ import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.PasswordTextField;
 import org.apache.wicket.markup.html.form.StatelessForm;
 import org.apache.wicket.markup.html.form.TextField;
+import org.apache.wicket.markup.html.pages.RedirectPage;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
+import org.apache.wicket.util.string.StringValue;
 
 /**
  * 
@@ -120,7 +122,13 @@ public class LoginPage extends WebPageBase {
         private void tryLogin() {
             try {
                 AppSession.get().login(getUser().getModelObject(), getPassword().getModelObject());
-                setResponsePage(getApplication().getHomePage());
+
+                final StringValue u = getPageParameters().get("u"); //$NON-NLS-1$
+                if (u.isNull() || u.isEmpty()) {
+                    setResponsePage(getApplication().getHomePage());
+                } else {
+                    setResponsePage(new RedirectPage(u.toString()));
+                }
             } catch (final FailAuthentication e) {
                 error(getString("message.failLogin")); //$NON-NLS-1$
                 this.errorClassAppender.addErrorClass(getForm());

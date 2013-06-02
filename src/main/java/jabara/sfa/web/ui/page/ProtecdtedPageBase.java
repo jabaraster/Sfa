@@ -8,20 +8,20 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 /**
  * @author jabaraster
  */
-public abstract class ProtedtedPageBase extends RestrictedPageBase {
+public abstract class ProtecdtedPageBase extends RestrictedPageBase {
     private static final long serialVersionUID = 4974019219251588135L;
 
     /**
      * 
      */
-    protected ProtedtedPageBase() {
+    protected ProtecdtedPageBase() {
         super();
     }
 
     /**
      * @param pParameters
      */
-    protected ProtedtedPageBase(final PageParameters pParameters) {
+    protected ProtecdtedPageBase(final PageParameters pParameters) {
         super(pParameters);
     }
 

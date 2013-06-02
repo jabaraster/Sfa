@@ -90,11 +90,6 @@
 			<attribute name="javadoc_location" value="jar:file:/Users/jabaraster/.m2/repository/jabaraster/jabara-servlet/1.1/jabara-servlet-1.1-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="var" path="M2_REPO/jabaraster/jabara-wicket/1.0/jabara-wicket-1.0.jar" sourcepath="M2_REPO/jabaraster/jabara-wicket/1.0/jabara-wicket-1.0-sources.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/Users/jabaraster/.m2/repository/jabaraster/jabara-wicket/1.0/jabara-wicket-1.0-javadoc.jar!/"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="var" path="M2_REPO/org/javassist/javassist/3.15.0-GA/javassist-3.15.0-GA.jar" sourcepath="M2_REPO/org/javassist/javassist/3.15.0-GA/javassist-3.15.0-GA-sources.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="jar:file:/Users/jabaraster/.m2/repository/org/javassist/javassist/3.15.0-GA/javassist-3.15.0-GA-javadoc.jar!/"/>
@@ -299,5 +294,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/jabara-wicket"/>
 	<classpathentry kind="output" path="src/main/webapp/WEB-INF/classes"/>
 </classpath>

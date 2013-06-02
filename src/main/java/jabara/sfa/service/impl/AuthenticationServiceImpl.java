@@ -11,6 +11,7 @@ import jabara.sfa.entity.EMember_;
 import jabara.sfa.model.FailAuthentication;
 import jabara.sfa.service.IAuthenticationService;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -26,6 +27,7 @@ public class AuthenticationServiceImpl extends JpaDaoBase implements IAuthentica
     /**
      * @param pEntityManagerFactory
      */
+    @Inject
     public AuthenticationServiceImpl(final EntityManagerFactory pEntityManagerFactory) {
         super(pEntityManagerFactory);
     }
