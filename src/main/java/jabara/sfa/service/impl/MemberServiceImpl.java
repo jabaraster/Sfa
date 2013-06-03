@@ -8,6 +8,8 @@ import jabara.sfa.entity.ELoginPassword;
 import jabara.sfa.entity.EMember;
 import jabara.sfa.service.IMemberService;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -26,6 +28,18 @@ public class MemberServiceImpl extends JpaDaoBase implements IMemberService {
     @Inject
     public MemberServiceImpl(final EntityManagerFactory pEntityManagerFactory) {
         super(pEntityManagerFactory);
+    }
+
+    /**
+     * @see jabara.sfa.service.IMemberService#getAll()
+     */
+    @Override
+    public List<EMember> getAll() {
+        final EntityManager em = getEntityManager();
+        final CriteriaBuilder builder = em.getCriteriaBuilder();
+        final CriteriaQuery<EMember> query = builder.createQuery(EMember.class);
+        query.from(EMember.class);
+        return em.createQuery(query).getResultList();
     }
 
     /**

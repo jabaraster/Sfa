@@ -3,23 +3,38 @@
  */
 package jabara.sfa.web.ui.page;
 
-import jabara.sfa.entity.EMember;
+import jabara.sfa.service.IMemberService;
 import jabara.wicket.beaneditor.BeanEditor;
 
+import javax.inject.Inject;
+
+import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.model.IModel;
 
 /**
  * @author jabaraster
  */
-public class MemberEditorPage extends ProtecdtedPageBase {
+public class MemberEditorPage extends WebPageBase {
     private static final long serialVersionUID = 8777145479105283339L;
+
+    @Inject
+    private IMemberService    memberService;
 
     /**
      * 
      */
     public MemberEditorPage() {
-        this.add(new BeanEditor<>("editor", new EMember())); //$NON-NLS-1$
+        this.add(new BeanEditor<>("editor", this.memberService.getAll().get(0))); //$NON-NLS-1$
+    }
+
+    /**
+     * @see jabara.sfa.web.ui.page.WebPageBase#renderHead(org.apache.wicket.markup.head.IHeaderResponse)
+     */
+    @Override
+    public void renderHead(final IHeaderResponse pResponse) {
+        super.renderHead(pResponse);
+        addPageCssReference(pResponse, this.getClass());
     }
 
     /**
