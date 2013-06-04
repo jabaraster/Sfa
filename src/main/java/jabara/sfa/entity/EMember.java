@@ -3,6 +3,7 @@
  */
 package jabara.sfa.entity;
 
+import jabara.bean.annotation.Localized;
 import jabara.jpa.entity.EntityBase;
 import jabara.sfa.beanvalidation.RequireMaxCharCount;
 
@@ -15,7 +16,7 @@ import javax.validation.constraints.NotNull;
  */
 @Entity
 public class EMember extends EntityBase<EMember> {
-    private static final long serialVersionUID    = -6160695120326005348L;
+    private static final long serialVersionUID       = -6160695120326005348L;
 
     private static final int  MAX_CHAR_COUNT_USER_ID = 100;
     /**
@@ -30,11 +31,12 @@ public class EMember extends EntityBase<EMember> {
      * 
      */
     @Column(nullable = false)
-    protected boolean         administrator       = false;
+    protected boolean         administrator          = false;
 
     /**
      * @return nameを返す.
      */
+    @Localized
     public String getUserId() {
         return this.userId;
     }
@@ -42,6 +44,7 @@ public class EMember extends EntityBase<EMember> {
     /**
      * @return administratorを返す.
      */
+    @Localized
     public boolean isAdministrator() {
         return this.administrator;
     }

@@ -295,5 +295,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/jabara-wicket"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/jabara-bean"/>
 	<classpathentry kind="output" path="src/main/webapp/WEB-INF/classes"/>
 </classpath>
