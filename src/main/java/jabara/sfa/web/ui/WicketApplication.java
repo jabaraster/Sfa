@@ -5,7 +5,7 @@ import jabara.sfa.service.IAuthenticationService;
 import jabara.sfa.web.ui.page.LoginPage;
 import jabara.sfa.web.ui.page.LogoutPage;
 import jabara.sfa.web.ui.page.MemberEditorPage;
-import jabara.sfa.web.ui.page.ProtecdtedPageBase;
+import jabara.sfa.web.ui.page.ProtectedPageBase;
 import jabara.sfa.web.ui.page.RestrictedPageBase;
 import jabara.sfa.web.ui.page.TopPage;
 import jabara.wicket.LoginPageInstantiationAuthorizer;
@@ -99,7 +99,7 @@ public class WicketApplication extends WebApplication {
                 if (AppSession.get().currentUserIsAdministrator()) {
                     return RestrictedPageBase.class;
                 }
-                return ProtecdtedPageBase.class;
+                return ProtectedPageBase.class;
             }
 
             @Override

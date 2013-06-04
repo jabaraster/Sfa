@@ -25,8 +25,8 @@ public class AppSession extends WebSession {
     private final IAuthenticationService           authenticationService;
 
     /**
-     * @param pRequest
-     * @param pAuthenticationService
+     * @param pRequest -
+     * @param pAuthenticationService -
      */
     public AppSession(final Request pRequest, final IAuthenticationService pAuthenticationService) {
         super(pRequest);
@@ -77,12 +77,12 @@ public class AppSession extends WebSession {
     }
 
     /**
-     * @param pUser
-     * @param pPassword
+     * @param pUserId -
+     * @param pPassword -
      * @throws FailAuthentication 認証NGの場合にスローして下さい.
      */
-    public void login(final String pUser, final String pPassword) throws FailAuthentication {
-        this.authenticated.set(this.authenticationService.login(pUser, pPassword));
+    public void login(final String pUserId, final String pPassword) throws FailAuthentication {
+        this.authenticated.set(this.authenticationService.login(pUserId, pPassword));
     }
 
     private boolean isAuthenticatedCore() {

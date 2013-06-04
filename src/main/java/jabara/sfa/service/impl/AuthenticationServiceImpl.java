@@ -25,7 +25,7 @@ public class AuthenticationServiceImpl extends JpaDaoBase implements IAuthentica
     private static final long serialVersionUID = 6002856896981032655L;
 
     /**
-     * @param pEntityManagerFactory
+     * @param pEntityManagerFactory -
      */
     @Inject
     public AuthenticationServiceImpl(final EntityManagerFactory pEntityManagerFactory) {

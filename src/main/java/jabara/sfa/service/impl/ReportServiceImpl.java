@@ -25,7 +25,7 @@ public class ReportServiceImpl extends JpaDaoBase implements IReportService {
     private static final long serialVersionUID = 7273269255415613629L;
 
     /**
-     * @param pEntityManagerFactory
+     * @param pEntityManagerFactory -
      */
     @Inject
     public ReportServiceImpl(final EntityManagerFactory pEntityManagerFactory) {

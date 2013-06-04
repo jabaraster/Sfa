@@ -33,7 +33,7 @@ public abstract class WebPageBase extends WebPage {
     }
 
     /**
-     * @param pParameters
+     * @param pParameters -
      */
     protected WebPageBase(final PageParameters pParameters) {
         super(pParameters);
@@ -88,7 +88,7 @@ public abstract class WebPageBase extends WebPage {
     protected abstract IModel<String> getTitleLabelModel();
 
     /**
-     * @param pResponse
+     * @param pResponse -
      */
     public static void addJQueryJavaSriptReference(final IHeaderResponse pResponse) {
         ArgUtil.checkNull(pResponse, "pResponse"); //$NON-NLS-1$

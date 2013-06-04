@@ -1,10 +1,10 @@
 /**
  * 
  */
-package jabara.sfa.web.ui.page;
+package jabara.sfa.web.ui;
 
 import jabara.sfa.web.WebInitializer;
-import jabara.sfa.web.ui.WicketApplication;
+import jabara.sfa.web.ui.page.LoginPage;
 
 import org.apache.wicket.util.IProvider;
 import org.apache.wicket.util.tester.FormTester;
@@ -45,7 +45,7 @@ public class WicketRule implements TestRule {
      * @return ログインまで済ませたオブジェクト.
      */
     @SuppressWarnings("nls")
-    public static WicketRule newWithLogin() {
+    public static WicketRule loggedin() {
         final WicketRule ret = new WicketRule();
         ret.tester.startPage(LoginPage.class);
         final FormTester formTester = ret.tester.newFormTester("form");
@@ -53,6 +53,13 @@ public class WicketRule implements TestRule {
         formTester.setValue("password", "password");
         formTester.submit("submitter");
         return ret;
+    }
+
+    /**
+     * @return -
+     */
+    public static WicketRule newInstance() {
+        return new WicketRule();
     }
 
     private static WicketApplication createApplication() {

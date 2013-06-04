@@ -16,13 +16,13 @@ import org.junit.Test;
 /**
  * @author jabaraster
  */
-public class MemberEditorPageTest {
+public class LoginPageTest {
 
     /**
      * 
      */
     @Rule
-    public final WicketRule tool = WicketRule.loggedin();
+    public final WicketRule tool = WicketRule.newInstance();
 
     /**
      * 
@@ -30,8 +30,8 @@ public class MemberEditorPageTest {
     @Test
     public void _test() {
         final WicketTester tester = this.tool.getTester();
-        tester.startPage(MemberEditorPage.class);
-        tester.assertRenderedPage(MemberEditorPage.class);
+        tester.startPage(LoginPage.class);
+        tester.assertRenderedPage(LoginPage.class);
     }
 
     /**
@@ -41,4 +41,5 @@ public class MemberEditorPageTest {
     public static void beforeClass() throws NamingException {
         WebStarter.initializeDataSource();
     }
+
 }

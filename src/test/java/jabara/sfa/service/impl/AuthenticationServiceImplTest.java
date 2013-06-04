@@ -3,14 +3,11 @@
  */
 package jabara.sfa.service.impl;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 import jabara.sfa.WebStarter;
 import jabara.sfa.entity.ELoginPassword;
 import jabara.sfa.entity.EMember;
 import jabara.sfa.model.FailAuthentication;
 import jabara.sfa.service.IAuthenticationService.AuthenticatedAs;
-import jabara.sfa.service.impl.AuthenticationServiceImpl;
 
 import javax.naming.NamingException;
 import javax.persistence.EntityManager;
@@ -22,6 +19,10 @@ import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
 
+import static org.junit.Assert.assertThat;
+
+import static org.hamcrest.CoreMatchers.is;
+
 /**
  * @author jabaraster
  */
@@ -29,7 +30,7 @@ import org.junit.runner.RunWith;
 public class AuthenticationServiceImplTest {
 
     /**
-     * @throws NamingException
+     * @throws NamingException -
      */
     @BeforeClass
     public static void beforeClass() throws NamingException {
@@ -53,7 +54,7 @@ public class AuthenticationServiceImplTest {
                                                                 };
 
         /**
-         * @throws FailAuthentication
+         * @throws FailAuthentication -
          */
         @SuppressWarnings("nls")
         @Test
@@ -66,7 +67,7 @@ public class AuthenticationServiceImplTest {
         }
 
         /**
-         * @throws FailAuthentication
+         * @throws FailAuthentication -
          */
         @SuppressWarnings("nls")
         @Test
@@ -126,7 +127,7 @@ public class AuthenticationServiceImplTest {
                                                                 };
 
         /**
-         * @throws FailAuthentication
+         * @throws FailAuthentication -
          */
         @SuppressWarnings("nls")
         @Test(expected = FailAuthentication.class)

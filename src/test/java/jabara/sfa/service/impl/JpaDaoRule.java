@@ -78,8 +78,8 @@ public abstract class JpaDaoRule<S> implements TestRule {
     }
 
     /**
-     * @param pName
-     * @param pCustomer
+     * @param pName -
+     * @param pCustomer -
      * @return -
      */
     public EBusinessItem insertBusinessItem(final String pName, final ECustomer pCustomer) {
@@ -90,8 +90,8 @@ public abstract class JpaDaoRule<S> implements TestRule {
     }
 
     /**
-     * @param pName
-     * @param pBelong
+     * @param pName -
+     * @param pBelong -
      * @return -
      */
     public ECustomer insertCustomer(final String pName, final EOrganization pBelong) {
@@ -102,7 +102,7 @@ public abstract class JpaDaoRule<S> implements TestRule {
     }
 
     /**
-     * @param pUserId
+     * @param pUserId -
      * @return -
      */
     public EMember insertMember(final String pUserId) {
@@ -112,9 +112,9 @@ public abstract class JpaDaoRule<S> implements TestRule {
     }
 
     /**
-     * @param pName
-     * @param pAddress
-     * @param pPhoneNumber
+     * @param pName -
+     * @param pAddress -
+     * @param pPhoneNumber -
      * @return -
      */
     public EOrganization insertOrganization(final String pName, final String pAddress, final String pPhoneNumber) {
@@ -126,10 +126,10 @@ public abstract class JpaDaoRule<S> implements TestRule {
     }
 
     /**
-     * @param pWriter
-     * @param pBusinessItem
-     * @param pReportDate
-     * @param pText
+     * @param pWriter -
+     * @param pBusinessItem -
+     * @param pReportDate -
+     * @param pText -
      * @return -
      */
     public EReport insertReport( //

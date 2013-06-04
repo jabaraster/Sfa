@@ -15,7 +15,7 @@ import org.apache.wicket.model.IModel;
 /**
  * @author jabaraster
  */
-public class MemberEditorPage extends WebPageBase {
+public class MemberEditorPage extends ProtectedPageBase {
     private static final long serialVersionUID = 8777145479105283339L;
 
     @Inject
