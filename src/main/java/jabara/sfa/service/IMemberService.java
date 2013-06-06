@@ -17,6 +17,15 @@ import com.google.inject.ImplementedBy;
 public interface IMemberService {
 
     /**
+     * 
+     */
+    final String DEFAULT_ADMINISTRATOR_USER_ID       = "administrator"; //$NON-NLS-1$
+    /**
+     * 
+     */
+    final String DEFAULT_ADMINISTRATOR_USER_PASSWORD = "password";     //$NON-NLS-1$
+
+    /**
      * @return -
      */
     List<EMember> getAll();

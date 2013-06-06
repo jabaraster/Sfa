@@ -30,7 +30,7 @@ public class LoginPage extends WebPageBase {
 
     private FeedbackPanel     feedback;
     private StatelessForm<?>  form;
-    private TextField<String> user;
+    private TextField<String> userId;
     private PasswordTextField password;
     private Button            submitter;
 
@@ -49,7 +49,7 @@ public class LoginPage extends WebPageBase {
     public void renderHead(final IHeaderResponse pResponse) {
         super.renderHead(pResponse);
         addPageCssReference(pResponse, getPageClass());
-        pResponse.render(OnDomReadyHeaderItem.forScript(JavaScriptUtil.getFocusScript(getUser())));
+        pResponse.render(OnDomReadyHeaderItem.forScript(JavaScriptUtil.getFocusScript(getUserId())));
     }
 
     /**
@@ -60,24 +60,17 @@ public class LoginPage extends WebPageBase {
         return Model.of(getString("pageTitle")); //$NON-NLS-1$
     }
 
-    private FeedbackPanel getFeedback() {
-        if (this.feedback == null) {
-            this.feedback = new FeedbackPanel("feedback"); //$NON-NLS-1$
-        }
-        return this.feedback;
-    }
-
-    private StatelessForm<?> getForm() {
+    StatelessForm<?> getForm() {
         if (this.form == null) {
             this.form = new StatelessForm<>("form"); //$NON-NLS-1$
-            this.form.add(getUser());
+            this.form.add(getUserId());
             this.form.add(getPassword());
             this.form.add(getSubmitter());
         }
         return this.form;
     }
 
-    private PasswordTextField getPassword() {
+    PasswordTextField getPassword() {
         if (this.password == null) {
             this.password = new PasswordTextField("password", Model.of(Empty.STRING)); //$NON-NLS-1$
         }
@@ -85,7 +78,7 @@ public class LoginPage extends WebPageBase {
     }
 
     @SuppressWarnings("serial")
-    private Button getSubmitter() {
+    Button getSubmitter() {
         if (this.submitter == null) {
             this.submitter = new Button("submitter") { //$NON-NLS-1$
                 @Override
@@ -102,12 +95,19 @@ public class LoginPage extends WebPageBase {
         return this.submitter;
     }
 
-    private TextField<String> getUser() {
-        if (this.user == null) {
-            this.user = new TextField<>("user", Model.of(Empty.STRING)); //$NON-NLS-1$
-            this.user.setRequired(true);
+    TextField<String> getUserId() {
+        if (this.userId == null) {
+            this.userId = new TextField<>("userId", Model.of(Empty.STRING)); //$NON-NLS-1$
+            this.userId.setRequired(true);
         }
-        return this.user;
+        return this.userId;
+    }
+
+    private FeedbackPanel getFeedback() {
+        if (this.feedback == null) {
+            this.feedback = new FeedbackPanel("feedback"); //$NON-NLS-1$
+        }
+        return this.feedback;
     }
 
     private class Handler implements Serializable {
@@ -121,7 +121,7 @@ public class LoginPage extends WebPageBase {
 
         private void tryLogin() {
             try {
-                AppSession.get().login(getUser().getModelObject(), getPassword().getModelObject());
+                AppSession.get().login(getUserId().getModelObject(), getPassword().getModelObject());
 
                 final StringValue u = getPageParameters().get("u"); //$NON-NLS-1$
                 if (u.isNull() || u.isEmpty()) {

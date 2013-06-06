@@ -55,11 +55,11 @@ public class MemberServiceImpl extends JpaDaoBase implements IMemberService {
 
         final EMember member = new EMember();
         member.setAdministrator(true);
-        member.setUserId("administrator"); //$NON-NLS-1$
+        member.setUserId(DEFAULT_ADMINISTRATOR_USER_ID);
         em.persist(member);
 
         final ELoginPassword password = new ELoginPassword();
-        password.setPassword("password"); //$NON-NLS-1$
+        password.setPassword(DEFAULT_ADMINISTRATOR_USER_PASSWORD);
         password.setUser(member);
         em.persist(password);
     }
