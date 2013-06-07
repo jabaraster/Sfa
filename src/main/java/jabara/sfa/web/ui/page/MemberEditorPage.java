@@ -14,6 +14,7 @@ import javax.inject.Inject;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.model.IModel;
 
@@ -30,6 +31,7 @@ public class MemberEditorPage extends WebPageBase {
     private final Handler       handler          = new Handler();
 
     private Form<?>             form;
+    private FeedbackPanel       feedback;
     private BeanEditor<EMember> editor;
     private Button              submitter;
 
@@ -70,9 +72,17 @@ public class MemberEditorPage extends WebPageBase {
         return this.editor;
     }
 
+    private FeedbackPanel getFeedback() {
+        if (this.feedback == null) {
+            this.feedback = new FeedbackPanel("feedback"); //$NON-NLS-1$
+        }
+        return this.feedback;
+    }
+
     private Form<?> getForm() {
         if (this.form == null) {
             this.form = new Form<>("form"); //$NON-NLS-1$
+            this.form.add(getFeedback());
             this.form.add(getEditor());
             this.form.add(getSubmitter());
         }
