@@ -5,11 +5,11 @@ package jabara.sfa.entity;
 
 import jabara.bean.annotation.Localized;
 import jabara.jpa.entity.EntityBase;
-import jabara.sfa.beanvalidation.RequireMaxCharCount;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * @author jabaraster
@@ -24,7 +24,7 @@ public class EMember extends EntityBase<EMember> {
      */
     @Column(nullable = false, length = MAX_CHAR_COUNT_USER_ID * 3, unique = true)
     @NotNull
-    @RequireMaxCharCount(MAX_CHAR_COUNT_USER_ID)
+    @Size(min = 1, max = MAX_CHAR_COUNT_USER_ID)
     protected String          userId;
 
     /**

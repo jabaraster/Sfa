@@ -82,7 +82,7 @@ public class MemberEditorPage extends WebPageBase {
     private Form<?> getForm() {
         if (this.form == null) {
             this.form = new Form<>("form"); //$NON-NLS-1$
-            this.form.add(getFeedback());
+            // this.form.add(getFeedback());
             this.form.add(getEditor());
             this.form.add(getSubmitter());
         }
@@ -93,6 +93,11 @@ public class MemberEditorPage extends WebPageBase {
     private Button getSubmitter() {
         if (this.submitter == null) {
             this.submitter = new Button("submitter") { //$NON-NLS-1$
+                @Override
+                public void onError() {
+                    jabara.Debug.write();
+                }
+
                 @Override
                 public void onSubmit() {
                     MemberEditorPage.this.handler.onSubmit();
