@@ -4,13 +4,13 @@
 package jabara.sfa.entity;
 
 import jabara.jpa.entity.EntityBase;
-import jabara.sfa.beanvalidation.RequireMaxCharCount;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * @author jabaraster
@@ -25,7 +25,7 @@ public class EBusinessItem extends EntityBase<EBusinessItem> {
      */
     @Column(nullable = false, length = MAX_CHAR_COUNT_NAME * 3)
     @NotNull
-    @RequireMaxCharCount(MAX_CHAR_COUNT_NAME)
+    @Size(min = 1, max = MAX_CHAR_COUNT_NAME)
     protected String          name;
     /**
      * 

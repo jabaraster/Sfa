@@ -5,7 +5,6 @@ package jabara.sfa.entity;
 
 import jabara.jpa.entity.EntityBase;
 import jabara.sfa.beanvalidation.PhoneNumber;
-import jabara.sfa.beanvalidation.RequireMaxCharCount;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,7 +24,7 @@ public class EOrganization extends EntityBase<EOrganization> {
      */
     @Column(nullable = false, length = MAX_CHAR_COUNT_NAME * 3)
     @NotNull
-    @RequireMaxCharCount(MAX_CHAR_COUNT_NAME)
+    @Size(min = 1, max = MAX_CHAR_COUNT_NAME)
     protected String          name;
 
     private static final int  MAX_CHAR_COUNT_ADDRESS      = 100;
@@ -34,7 +33,7 @@ public class EOrganization extends EntityBase<EOrganization> {
      */
     @Column(nullable = false, length = MAX_CHAR_COUNT_ADDRESS * 3)
     @NotNull
-    @RequireMaxCharCount(MAX_CHAR_COUNT_ADDRESS)
+    @Size(min = 1, max = MAX_CHAR_COUNT_ADDRESS)
     protected String          address;
 
     private static final int  MIN_CHAR_COUNT_PHONE_NUMBER = 10;

@@ -3,8 +3,12 @@
  */
 package jabara.sfa.entity;
 
+import jabara.bean.annotation.Hidden;
 import jabara.bean.annotation.Localized;
+import jabara.bean.annotation.Order;
 import jabara.jpa.entity.EntityBase;
+
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,9 +38,37 @@ public class EMember extends EntityBase<EMember> {
     protected boolean         administrator          = false;
 
     /**
+     * @see jabara.jpa.entity.EntityBase#getCreated()
+     */
+    @Override
+    @Order(100)
+    public Date getCreated() {
+        return super.getCreated();
+    }
+
+    /**
+     * @see jabara.jpa.entity.EntityBase#getId()
+     */
+    @Override
+    @Order(0)
+    public Long getId() {
+        return super.getId();
+    }
+
+    /**
+     * @see jabara.jpa.entity.EntityBase#getUpdated()
+     */
+    @Override
+    @Order(200)
+    public Date getUpdated() {
+        return super.getUpdated();
+    }
+
+    /**
      * @return nameを返す.
      */
     @Localized
+    @Order(10)
     public String getUserId() {
         return this.userId;
     }
@@ -45,8 +77,18 @@ public class EMember extends EntityBase<EMember> {
      * @return administratorを返す.
      */
     @Localized
+    @Order(20)
     public boolean isAdministrator() {
         return this.administrator;
+    }
+
+    /**
+     * @see jabara.jpa.entity.EntityBase#isPersisted()
+     */
+    @Override
+    @Hidden
+    public boolean isPersisted() {
+        return super.isPersisted();
     }
 
     /**
@@ -62,5 +104,4 @@ public class EMember extends EntityBase<EMember> {
     public void setUserId(final String pName) {
         this.userId = pName;
     }
-
 }

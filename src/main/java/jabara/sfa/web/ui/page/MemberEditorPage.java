@@ -5,6 +5,7 @@ package jabara.sfa.web.ui.page;
 
 import jabara.sfa.entity.EMember;
 import jabara.sfa.service.IMemberService;
+import jabara.wicket.ErrorClassAppender;
 import jabara.wicket.beaneditor.BeanEditor;
 
 import java.io.Serializable;
@@ -14,9 +15,9 @@ import javax.inject.Inject;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;
-import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.Model;
 
 /**
  * @author jabaraster
@@ -31,7 +32,6 @@ public class MemberEditorPage extends WebPageBase {
     private final Handler       handler          = new Handler();
 
     private Form<?>             form;
-    private FeedbackPanel       feedback;
     private BeanEditor<EMember> editor;
     private Button              submitter;
 
@@ -72,17 +72,9 @@ public class MemberEditorPage extends WebPageBase {
         return this.editor;
     }
 
-    private FeedbackPanel getFeedback() {
-        if (this.feedback == null) {
-            this.feedback = new FeedbackPanel("feedback"); //$NON-NLS-1$
-        }
-        return this.feedback;
-    }
-
     private Form<?> getForm() {
         if (this.form == null) {
             this.form = new Form<>("form"); //$NON-NLS-1$
-            // this.form.add(getFeedback());
             this.form.add(getEditor());
             this.form.add(getSubmitter());
         }
@@ -95,7 +87,7 @@ public class MemberEditorPage extends WebPageBase {
             this.submitter = new Button("submitter") { //$NON-NLS-1$
                 @Override
                 public void onError() {
-                    jabara.Debug.write();
+                    MemberEditorPage.this.handler.onError();
                 }
 
                 @Override
@@ -108,12 +100,16 @@ public class MemberEditorPage extends WebPageBase {
     }
 
     private class Handler implements Serializable {
-        private static final long serialVersionUID = -6538659030796470744L;
+        private static final long        serialVersionUID   = -6538659030796470744L;
+
+        private final ErrorClassAppender errorClassAppender = new ErrorClassAppender(Model.of("error")); //$NON-NLS-1$
+
+        void onError() {
+            this.errorClassAppender.addErrorClass(getForm());
+        }
 
         void onSubmit() {
-            // TODO Auto-generated method stub
-            final EMember bean = getEditor().getBean();
-            jabara.Debug.write(bean);
+            this.errorClassAppender.addErrorClass(getForm());
         }
     }
 }

@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 
 /**
- * @param <E>
+ * @param <E> -
  * @author jabaraster
  */
 @MappedSuperclass

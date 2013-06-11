@@ -3,8 +3,6 @@
  */
 package jabara.sfa.entity;
 
-import jabara.sfa.beanvalidation.RequireMaxCharCount;
-
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -14,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * @author jabaraster
@@ -28,7 +27,7 @@ public class EReport extends EReadable<EReport> {
      */
     @Column(nullable = false, length = MAX_CHAR_COUNT_TEXT * 3)
     @NotNull
-    @RequireMaxCharCount(MAX_CHAR_COUNT_TEXT)
+    @Size(min = 1, max = MAX_CHAR_COUNT_TEXT)
     protected String          text;
 
     /**

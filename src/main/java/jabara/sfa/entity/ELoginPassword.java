@@ -40,7 +40,7 @@ public class ELoginPassword extends EntityBase<ELoginPassword> {
     protected EMember                  user;
 
     /**
-     * @param pPassword
+     * @param pPassword -
      * @return -
      */
     public boolean equal(final String pPassword) {
@@ -55,7 +55,7 @@ public class ELoginPassword extends EntityBase<ELoginPassword> {
     }
 
     /**
-     * @param pPassword
+     * @param pPassword -
      */
     public void setPassword(final String pPassword) {
         this.password = digest(pPassword);
