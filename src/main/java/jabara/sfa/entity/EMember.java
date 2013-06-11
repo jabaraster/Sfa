@@ -41,6 +41,7 @@ public class EMember extends EntityBase<EMember> {
      * @see jabara.jpa.entity.EntityBase#getCreated()
      */
     @Override
+    @Localized
     @Order(100)
     public Date getCreated() {
         return super.getCreated();
@@ -59,6 +60,7 @@ public class EMember extends EntityBase<EMember> {
      * @see jabara.jpa.entity.EntityBase#getUpdated()
      */
     @Override
+    @Localized
     @Order(200)
     public Date getUpdated() {
         return super.getUpdated();
