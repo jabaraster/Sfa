@@ -1,5 +1,8 @@
 eclipse.preferences.version=1
+encoding//src/main/java/jabara/sfa/web/ui/page/App.less=UTF-8
+encoding//src/main/java/jabara/sfa/web/ui/page/Common.less=UTF-8
 encoding//src/main/java/jabara/sfa/web/ui/page/LoginPage.html=UTF-8
+encoding//src/main/java/jabara/sfa/web/ui/page/LoginPage.less=UTF-8
 encoding//src/main/java/jabara/sfa/web/ui/page/LogoutPage.html=UTF-8
 encoding//src/main/java/jabara/sfa/web/ui/page/MemberEditorPage.html=UTF-8
 encoding//src/main/java/jabara/sfa/web/ui/page/TopPage.html=UTF-8

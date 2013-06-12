@@ -14,6 +14,7 @@ import org.apache.wicket.markup.html.form.PasswordTextField;
 import org.apache.wicket.markup.html.form.StatelessForm;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.pages.RedirectPage;
+import org.apache.wicket.markup.html.panel.ComponentFeedbackPanel;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
@@ -31,7 +32,9 @@ public class LoginPage extends WebPageBase {
     private FeedbackPanel     feedback;
     private StatelessForm<?>  form;
     private TextField<String> userId;
+    private FeedbackPanel     userIdFeedback;
     private PasswordTextField password;
+    private FeedbackPanel     passwordFeedback;
     private Button            submitter;
 
     /**
@@ -64,7 +67,9 @@ public class LoginPage extends WebPageBase {
         if (this.form == null) {
             this.form = new StatelessForm<>("form"); //$NON-NLS-1$
             this.form.add(getUserId());
+            this.form.add(getUserIdFeedback());
             this.form.add(getPassword());
+            this.form.add(getPasswordFeedback());
             this.form.add(getSubmitter());
         }
         return this.form;
@@ -105,9 +110,23 @@ public class LoginPage extends WebPageBase {
 
     private FeedbackPanel getFeedback() {
         if (this.feedback == null) {
-            this.feedback = new FeedbackPanel("feedback"); //$NON-NLS-1$
+            this.feedback = new ComponentFeedbackPanel("feedback", this); //$NON-NLS-1$
         }
         return this.feedback;
+    }
+
+    private FeedbackPanel getPasswordFeedback() {
+        if (this.passwordFeedback == null) {
+            this.passwordFeedback = new ComponentFeedbackPanel("passwordFeedback", getPassword()); //$NON-NLS-1$
+        }
+        return this.passwordFeedback;
+    }
+
+    private FeedbackPanel getUserIdFeedback() {
+        if (this.userIdFeedback == null) {
+            this.userIdFeedback = new ComponentFeedbackPanel("userIdFeedback", getUserId()); //$NON-NLS-1$
+        }
+        return this.userIdFeedback;
     }
 
     private class Handler implements Serializable {

@@ -1,3 +1,11 @@
+<head>
+  <meta charset="UTF-8" />
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="App.css" rel="stylesheet" type="text/css" />
+  <link href="LoginPage.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
 <wicket:extend>
 
 <div class="LoginPage">
@@ -5,13 +13,31 @@
   <h1>ログイン</h1>
   <div wicket:id="feedback"></div>
   <form wicket:id="form">
-    <ul>
-      <li><span>ユーザ</span><input type="text" wicket:id="userId" /></li>
-      <li><span>パスワード</span><input type="password" wicket:id="password" /></li>
-      <li><button wicket:id="submitter" class="btn btn-success btn-large"><i class="icon-white icon-user"></i> ログイン</button></li>
+    <ul class="inputs">
+      <li>
+        <span class="label">ユーザ</span>
+        <input type="text" wicket:id="userId" />
+        <div wicket:id="userIdFeedback"></div>
+      </li>
+      <li>
+        <span class="label">パスワード</span>
+        <input type="password" wicket:id="password" />
+        <div wicket:id="passwordFeedback">
+          <ul class="feedbackPanel">
+            <li class="feedbackPanelERROR">
+              <span class="feedbackPanelERROR">passwordは必須入力です。</span>
+            </li>
+            <li class="feedbackPanelERROR">
+              <span class="feedbackPanelERROR">エラーメッセージのテストのために２行表示します。</span>
+            </li>
+          </ul>
+        </div>
+      </li>
     </ul>
+    <button wicket:id="submitter" class="btn btn-success btn-large"><i class="icon-white icon-user"></i> ログイン</button>
   </form>
 
 </div>
 
 </wicket:extend>
+</body>
