@@ -26,7 +26,7 @@ public class WebStarter {
         // dataSource.setDatabaseName("Aac");
         // dataSource.setUser("postgres");
         // dataSource.setPassword("postgres");
-        new Resource("jdbc/Fsa", dataSource);
+        new Resource("jdbc/" + Environment.getApplicationName(), dataSource);
     }
 
     /**
